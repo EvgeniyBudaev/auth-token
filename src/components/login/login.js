@@ -3,6 +3,7 @@ import classes from './login.module.css';
 import { Link } from "react-router-dom";
 import { URL } from '../routes/urls';
 import Input from '../ui/input';
+import axios from 'axios';
 
 function validateEmail(email) {
   var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -45,7 +46,19 @@ class Login extends Component {
     }
   }
 
-  loginHandler = () => { };
+  loginHandler = async () => {
+    const authData = {
+      email: this.state.formControls.email.value,
+      password: this.state.formControls.password.value,
+      returnSecureToken: true
+    }
+    try {
+      const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD9YchiTbESNThsDFAD5UImfKS-ooWyLxE', authData)
+      console.log(response.data)
+    } catch (e) {
+      console.log(e)
+    }
+   };
 
   onSubmitHandler = (event) => {
     event.preventDefault()
