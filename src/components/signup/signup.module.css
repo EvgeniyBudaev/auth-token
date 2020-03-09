@@ -19,7 +19,7 @@ form {
 .Signup__inputs {
   margin-bottom: 40px;
 }
-button {
+input {
   width: 240px;
   text-align: center;
   background: transparent;
@@ -33,7 +33,7 @@ button {
   outline: none;
   color: #fff;
 }
-button[type="primary"] {
+input[type="primary"] {
   border: none;
   width: 190px;
   background: white;
@@ -45,7 +45,7 @@ button[type="primary"] {
   cursor: pointer;
   transition: all 0.5s;
 }
-button[type="primary"]:hover {
+input[type="primary"]:hover {
   color: #fff;
   background-color: black;
 }
@@ -80,4 +80,3 @@ h2 {
 .Signup__footer_goToHome .link:hover {
   color: skyblue;
 }
-
