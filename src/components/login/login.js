@@ -3,7 +3,8 @@ import classes from './login.module.css';
 import { Link } from "react-router-dom";
 import { URL } from '../routes/urls';
 import Input from '../ui/input';
-import axios from 'axios';
+import { connect } from "react-redux";
+import { auth } from '../../actions/auth';
 
 function validateEmail(email) {
   var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -46,18 +47,12 @@ class Login extends Component {
     }
   }
 
-  loginHandler = async () => {
-    const authData = {
-      email: this.state.formControls.email.value,
-      password: this.state.formControls.password.value,
-      returnSecureToken: true
-    }
-    try {
-      const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD9YchiTbESNThsDFAD5UImfKS-ooWyLxE', authData)
-      console.log(response.data)
-    } catch (e) {
-      console.log(e)
-    }
+  loginHandler = () => {
+    this.props.auth(
+      this.state.formControls.email.value,
+      this.state.formControls.password.value,
+      true
+    )
    };
 
   onSubmitHandler = (event) => {
@@ -87,7 +82,6 @@ class Login extends Component {
   };
 
   onChangeHandler = (event, controlName) => {
-    console.log(`${controlName}: `, event.target.value)
     const formControls = { ...this.state.formControls }
     const control = { ...formControls[controlName] }
     control.value = event.target.value
@@ -160,4 +154,10 @@ class Login extends Component {
   };
 };
 
-export default Login;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    auth: (email, password, isLogin) => dispatch(auth(email, password, isLogin))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Login);
