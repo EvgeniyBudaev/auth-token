@@ -1,0 +1,16 @@
+.Header {
+  height: 100vh;
+  position: absolute;
+  z-index: 5;
+  background: rgba(150, 7, 51, 0.83);
+  left: 0;
+  right: 0;
+}
+.Container {
+  padding: 0 15px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.Header-wrapper {
+  height: 100vh;
+}

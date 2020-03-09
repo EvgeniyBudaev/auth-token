@@ -1,0 +1,36 @@
+.HeaderBtn {
+  display: flex;
+}
+.Signup,
+.Login {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 8px;
+  border-radius: 20px;
+  border: 1px solid #fff;
+  display: inline-block;
+  border-radius: 20px;
+  padding: 10px 30px;
+  background: linear-gradient(
+    270deg,
+    rgba(233, 190, 106, 1),
+    rgba(146, 111, 52, 0.1),
+    rgba(34, 34, 34, 1),
+    rgba(34, 34, 34, 0.1)
+  );
+  background-position: 1% 50%;
+  background-size: 300% 300%;
+  border: 1px solid rgba(223, 190, 106, 0.3);
+  transition: all 0.7s ease-in-out;
+}
+.Signup:hover,
+.Login:hover {
+  color: #fff;
+  border: 1px solid rgba(223, 190, 106, 0);
+  background-position: 99% 50%;
+}
+.HeaderBtnLogin {
+  padding: 0 50px;
+}
