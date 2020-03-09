@@ -4,7 +4,9 @@ export const URL = {
   ARTWORKS: "/artworks",
   MASTERS: "/masters",
   LOGIN: "/login",
-  SIGNUP: "/signup"
+  SIGNUP: "/signup",
+  LOGOUT: "/logout",
+  LK: "/lk"
 };
 
 

@@ -10,6 +10,7 @@ const AuthBtn = props => {
     <div className={classes.HeaderBtn}>
       <div className={classes.HeaderBtnSignup}><Link to={URL.SIGNUP} className={classes.Signup}>Регистрация</Link></div>
       <div className={classes.HeaderBtnLogin}><Link to={URL.LOGIN} className={classes.Login}>Войти</Link></div>
+      <div className={classes.HeaderBtnLogin}><Link to={URL.LOGOUT} className={classes.Login}>Выйти</Link></div>
     </div>
 
   );
