@@ -8,7 +8,7 @@ const isInvalid = ({ valid, touched, shouldValidate }) => {
 const Input = props => {
   const inputType = props.type || "text";
   const inputName = props.name || "";
-  // const inputPlaceholder = props.placeholder || "";
+  const inputPlaceholder = props.placeholder || "";
   const cls = [classes.Input];
   const htmlFor = `${inputType}-${Math.random()}`;
 
@@ -25,7 +25,7 @@ const Input = props => {
         value={props.value}
         onChange={props.onChange}
         name={inputName}
-        // placeholder={inputPlaceholder}
+        placeholder={inputPlaceholder}
       ></input>
 
       {isInvalid(props) ? <span>{props.errorMessage}</span> : null}
