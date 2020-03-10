@@ -8,5 +8,3 @@ export const URL = {
   LOGOUT: "/logout",
   LK: "/lk"
 };
-
-

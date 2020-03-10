@@ -1,7 +1,7 @@
 import React from "react";
 
 import * as classes from "./error-indicator.module.css";
-import icon from './error-icon.png';
+import icon from "./error-icon.png";
 
 const ErrorIndicator = () => {
   return (

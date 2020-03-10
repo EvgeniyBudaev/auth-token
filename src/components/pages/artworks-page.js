@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import classes from './artworks-page.module.css'
+import classes from "./artworks-page.module.css";
 
 const ArtworksPage = props => {
   return (
@@ -9,4 +9,4 @@ const ArtworksPage = props => {
   );
 };
 
-export default ArtworksPage ;
+export default ArtworksPage;

@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import classes from './masters-page.module.css';
+import classes from "./masters-page.module.css";
 
 const MastersPage = props => {
   return (

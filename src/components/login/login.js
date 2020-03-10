@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import classes from './login.module.css';
+import React, { Component } from "react";
+import classes from "./login.module.css";
 import { Link } from "react-router-dom";
-import { URL } from '../routes/urls';
-import Input from '../ui/input';
+import { URL } from "../routes/urls";
+import Input from "../ui/input";
 import { connect } from "react-redux";
-import { auth } from '../../actions/auth';
+import { auth } from "../../actions/auth";
 
 function validateEmail(email) {
   var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -12,17 +12,16 @@ function validateEmail(email) {
 }
 
 class Login extends Component {
-
   state = {
     isFormValid: false,
     formControls: {
       email: {
-        value: '',
-        type: 'email',
-        label: 'Email',
-        name: 'email',
-        placeholder: 'Email',
-        errorMessage: 'Введите корректный email!',
+        value: "",
+        type: "email",
+        label: "Email",
+        name: "email",
+        placeholder: "Email",
+        errorMessage: "Введите корректный email!",
         valid: false,
         touched: false,
         validation: {
@@ -31,12 +30,12 @@ class Login extends Component {
         }
       },
       password: {
-        value: '',
-        type: 'password',
-        label: 'Пароль',
-        name: 'password',
-        placeholder: 'Пароль',
-        errorMessage: 'Неверный пароль!',
+        value: "",
+        type: "password",
+        label: "Пароль",
+        name: "password",
+        placeholder: "Пароль",
+        errorMessage: "Неверный пароль!",
         valid: false,
         touched: false,
         validation: {
@@ -45,64 +44,65 @@ class Login extends Component {
         }
       }
     }
-  }
+  };
 
   loginHandler = () => {
     this.props.auth(
       this.state.formControls.email.value,
       this.state.formControls.password.value,
       true
-    )
-   };
+    );
+  };
 
-  onSubmitHandler = (event) => {
-    event.preventDefault()
+  onSubmitHandler = event => {
+    event.preventDefault();
   };
 
   validateControl = (value, validation) => {
     if (!validation) {
-      return true
+      return true;
     }
 
-    let isValid = true
+    let isValid = true;
 
     if (validation.required) {
-      isValid = value.trim() !== '' && isValid
+      isValid = value.trim() !== "" && isValid;
     }
 
     if (validation.email) {
-      isValid = validateEmail(value) && isValid
+      isValid = validateEmail(value) && isValid;
     }
 
     if (validation.minLength) {
-      isValid = value.length >= validation.minLength && isValid
+      isValid = value.length >= validation.minLength && isValid;
     }
 
-    return isValid
+    return isValid;
   };
 
   onChangeHandler = (event, controlName) => {
-    const formControls = { ...this.state.formControls }
-    const control = { ...formControls[controlName] }
-    control.value = event.target.value
-    control.touched = true
-    control.valid = this.validateControl(control.value, control.validation)
-    formControls[controlName] = control
+    const formControls = { ...this.state.formControls };
+    const control = { ...formControls[controlName] };
+    control.value = event.target.value;
+    control.touched = true;
+    control.valid = this.validateControl(control.value, control.validation);
+    formControls[controlName] = control;
 
-    let isFormValid = true
+    let isFormValid = true;
 
     Object.keys(formControls).forEach(name => {
-      isFormValid = formControls[name].valid && isFormValid
-    })
+      isFormValid = formControls[name].valid && isFormValid;
+    });
 
     this.setState({
-      formControls, isFormValid
-    })
+      formControls,
+      isFormValid
+    });
   };
 
   renderInputs = () => {
     return Object.keys(this.state.formControls).map((controlName, index) => {
-      const control = this.state.formControls[controlName]
+      const control = this.state.formControls[controlName];
       return (
         <Input
           key={controlName + index}
@@ -115,10 +115,11 @@ class Login extends Component {
           placeholder={control.placeholder}
           shouldValidate={!!control.validation}
           errorMessage={control.errorMessage}
-          onChange={event => this.onChangeHandler(event, controlName)} />
-      )
-    })
-  }
+          onChange={event => this.onChangeHandler(event, controlName)}
+        />
+      );
+    });
+  };
 
   render() {
     return (
@@ -129,9 +130,7 @@ class Login extends Component {
               <h2>Учетная запись</h2>
             </div>
             <div className={classes.Login__content}>
-              <div className={classes.Login__inputs}>
-                {this.renderInputs()}
-              </div>
+              <div className={classes.Login__inputs}>{this.renderInputs()}</div>
               <div className={classes.Login__btn}>
                 <Link to={URL.HOME} className={classes.link}>
                   <button
@@ -139,25 +138,34 @@ class Login extends Component {
                     value="Войти"
                     onClick={this.loginHandler}
                     disabled={!this.state.isFormValid}
-                  >Войти</button>
+                  >
+                    Войти
+                  </button>
                 </Link>
               </div>
             </div>
             <div className={classes.Login__footer}>
-              Нет аккаунта?<Link to={URL.SIGNUP} className={classes.link}>&nbsp;Регистрация</Link>
-              <div className={classes.Login__footer_goToHome}><Link to={URL.HOME} className={classes.link}>Вернуться на главную страницу</Link></div>
+              Нет аккаунта?
+              <Link to={URL.SIGNUP} className={classes.link}>
+                &nbsp;Регистрация
+              </Link>
+              <div className={classes.Login__footer_goToHome}>
+                <Link to={URL.HOME} className={classes.link}>
+                  Вернуться на главную страницу
+                </Link>
+              </div>
             </div>
           </div>
         </form>
       </div>
-    )
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    auth: (email, password, isLogin) => dispatch(auth(email, password, isLogin))
+    );
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    auth: (email, password, isLogin) => dispatch(auth(email, password, isLogin))
+  };
+};
 
 export default connect(null, mapDispatchToProps)(Login);

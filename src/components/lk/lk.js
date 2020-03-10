@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import classes from './lk.module.css';
+import React, { Component } from "react";
+import classes from "./lk.module.css";
 
 class LK extends Component {
   render() {
@@ -7,8 +7,8 @@ class LK extends Component {
       <div className={classes.LK}>
         <span>Личный кабинет</span>
       </div>
-    )
-  };
-};
+    );
+  }
+}
 
 export default LK;

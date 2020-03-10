@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import classes from './signup-page.module.css';
-import SignUp from '../signup';
+import React, { Component } from "react";
+import classes from "./signup-page.module.css";
+import SignUp from "../signup";
 
 class SignupPage extends Component {
   render() {
@@ -8,8 +8,8 @@ class SignupPage extends Component {
       <div className={classes.Signup__wrapper}>
         <SignUp />
       </div>
-    )
-  };
-};
+    );
+  }
+}
 
 export default SignupPage;
