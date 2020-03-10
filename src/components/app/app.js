@@ -31,7 +31,7 @@ class App extends Component {
         <Route path={URL.LOGIN} exact>
           <LoginPage />
         </Route>
-        <MainLayout>
+  
           <Route path={URL.HOME} exact>
             <HomePage />
           </Route>
@@ -44,7 +44,7 @@ class App extends Component {
           <Route path={URL.MASTERS} exact>
             <MastersPage />
           </Route>
-        </MainLayout>
+
         <Redirect to={URL.HOME} />
       </Switch>
     )
@@ -58,7 +58,7 @@ class App extends Component {
           <Route path={URL.LOGOUT} exact>
             <Logout />
           </Route>
-          <MainLayout>
+
             <Route path={URL.HOME} exact>
               <HomePage />
             </Route>
@@ -71,16 +71,16 @@ class App extends Component {
             <Route path={URL.MASTERS} exact>
               <MastersPage />
             </Route>
-          </MainLayout>
+
           <Redirect to={URL.HOME} />
         </Switch>
       )
     }
 
     return (
-      <Fragment>
+      <MainLayout>
         {routes}
-      </Fragment>
+      </MainLayout>
     );
   }
 }

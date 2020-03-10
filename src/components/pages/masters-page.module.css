@@ -1,6 +1,11 @@
-.MastersPage {
+/* .MastersPage {
   position: absolute;
   z-index: 5;
   left: 0;
   right: 0;
+} */
+
+.MastersPage {
+  background: #ccc;
+  height: 100vh;
 }

@@ -1,7 +1,12 @@
-.Projects {
+/* .Projects {
   position: absolute;
   z-index: 5;
   left: 0;
   right: 0;
 }
+ */
 
+ .Projects {
+  background: #ccc;
+  height: 100vh;
+ }

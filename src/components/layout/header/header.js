@@ -1,19 +1,22 @@
-import React from "react";
+import React, { Component } from "react";
 import HeaderTop from "./header-top";
 import * as classes from "./header.module.css";
 
-const Header = props => {
-  return (
+class Header extends Component {
 
-    <header className={classes.Header}>
-      <div className={classes.Container}>
-        <div className={classes['Header-wrapper']}>
-          <HeaderTop {...props} />
+  render() {
+    return (
+
+      <header className={classes.Header}>
+        <div className={classes.Container}>
+          <div className={classes['Header-wrapper']}>
+            <HeaderTop {...this.props} />
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
 
-  );
+    );
+  }
 };
 
 export default Header;

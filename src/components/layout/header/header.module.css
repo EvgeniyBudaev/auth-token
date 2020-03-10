@@ -1,4 +1,4 @@
-.Header {
+/* .Header {
   height: 100vh;
   position: absolute;
   z-index: 5;
@@ -13,4 +13,8 @@
 }
 .Header-wrapper {
   height: 100vh;
+} */
+
+.Header {
+  background: rgb(121, 120, 120);
 }
