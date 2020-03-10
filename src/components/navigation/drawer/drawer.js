@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import classes from "./drawer.module.css";
 import Backdrop from "../../ui/Backdrop/Backdrop";
-import { URL } from '../../routes/urls';
 
 class Drawer extends Component {
   clickHandler = () => {
